@@ -9,7 +9,9 @@ resources:
       target: tpch
       libraries:
         - notebook:
-            path: ../../pipelines/tpch/tpch_pipeline.ipynb
+            path: ../../pipelines/tpch/tpch_pipeline_ingest.ipynb
+        - notebook:
+            path: ../../pipelines/tpch/tpch_pipeline_transform.ipynb
 
       # configuration:
       #   bundle.sourcePath: /Workspace/${workspace.file_path}/src

@@ -13,7 +13,7 @@ variables:
     description: The catalog to deploy to.
   warehouse_id:
     description: The warehouse to use.
-    default: d1184b8c2a8a87eb
+    default: e143699e1ec7e723
   env:
     description: The environment to deploy to.
     default: development
