@@ -1,4 +1,4 @@
-# The main pipeline for ingestion_framework
+# The main pipeline for the TPCH pipeline
 resources:
   pipelines:
     tpch_ingestion_pipeline:

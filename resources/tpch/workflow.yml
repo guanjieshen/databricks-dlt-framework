@@ -1,4 +1,4 @@
-# The main job for ingestion_framework.
+# The main job for the TPCH pipeline
 resources:
   jobs:
     tpch_ingestion_job:
