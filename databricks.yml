@@ -7,6 +7,17 @@ bundle:
 include:
   - resources/*/*.yml
 
+# Variable declarations. These variables are assigned in the dev/prod targets below.
+variables:
+  catalog:
+    description: The catalog to deploy to.
+  warehouse_id:
+    description: The warehouse to use.
+    default: d1184b8c2a8a87eb
+  env:
+    description: The environment to deploy to.
+    default: development
+
 targets:
   # The 'dev' target, for development purposes. This target is the default.
   dev:
@@ -19,6 +30,9 @@ targets:
     default: true
     workspace:
       host: https://adb-984752964297111.11.azuredatabricks.net
+    variables:
+      catalog: gshen_etl_framework_dev
+      env : development
 
   ## Optionally, there could be a 'staging' target here.
   ## (See Databricks docs on CI/CD at https://docs.databricks.com/dev-tools/bundles/ci-cd.html.)
@@ -41,3 +55,6 @@ targets:
       # This runs as guanjie.shen@databricks.com in production. We could also use a service principal here,
       # see https://docs.databricks.com/dev-tools/bundles/permissions.html.
       user_name: guanjie.shen@databricks.com
+    variables:
+      catalog: gshen_etl_framework_prod
+      env : production

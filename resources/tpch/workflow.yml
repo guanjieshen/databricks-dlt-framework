@@ -12,13 +12,10 @@ resources:
       email_notifications:
         on_failure:
           - guanjie.shen@databricks.com
-
+      tags:
+        envionment: ${var.env}
+        
       tasks:
-        # - task_key: notebook_task
-        #   job_cluster_key: job_cluster
-        #   notebook_task:
-        #     notebook_path: ../src/notebook.ipynb
-
         - task_key: refresh_pipeline
           pipeline_task:
             pipeline_id: ${resources.pipelines.tpch_ingestion_pipeline.id}

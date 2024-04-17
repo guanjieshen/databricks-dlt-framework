@@ -3,8 +3,10 @@ resources:
   pipelines:
     tpch_ingestion_pipeline:
       name: "TPCH Ingestion Pipeline"
-      catalog: gshen_ingestion_framework
-      target: tpch_${bundle.environment}
+      serverless: true
+      channel: preview
+      catalog: ${var.catalog}
+      target: tpch
       libraries:
         - notebook:
             path: ../../pipelines/tpch/tpch_pipeline.ipynb
