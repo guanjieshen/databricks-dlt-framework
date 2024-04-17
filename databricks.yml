@@ -4,7 +4,7 @@ bundle:
   name: ingestion_framework
 
 include:
-  - resources/*.yml
+  - resources/*/*.yml
 
 targets:
   # The 'dev' target, for development purposes. This target is the default.

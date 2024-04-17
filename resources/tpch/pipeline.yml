@@ -1,0 +1,13 @@
+# The main pipeline for ingestion_framework
+resources:
+  pipelines:
+    tpch_ingestion_pipeline:
+      name: "[${bundle.environment}] TPCH Ingestion Pipeline"
+      catalog: gshen_ingestion_framework
+      target: tpch_${bundle.environment}
+      libraries:
+        - notebook:
+            path: ../../pipelines/tpch/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: /Workspace/${workspace.file_path}/src
