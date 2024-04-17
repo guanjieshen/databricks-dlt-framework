@@ -5,9 +5,9 @@ resources:
       name: tpch_ingestion_job
 
       schedule:
-        # Run every day at 8:37 AM
+        # Run every day at 8:37 AM MST
         quartz_cron_expression: "44 37 8 * * ?"
-        timezone_id: Europe/Amsterdam
+        timezone_id: America/Boise
 
       email_notifications:
         on_failure:

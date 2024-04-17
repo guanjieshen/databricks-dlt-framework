@@ -2,12 +2,12 @@
 resources:
   pipelines:
     tpch_ingestion_pipeline:
-      name: "[${bundle.environment}] TPCH Ingestion Pipeline"
+      name: "TPCH Ingestion Pipeline"
       catalog: gshen_ingestion_framework
       target: tpch_${bundle.environment}
       libraries:
         - notebook:
-            path: ../../pipelines/tpch/dlt_pipeline.ipynb
+            path: ../../pipelines/tpch/tpch_pipeline.ipynb
 
-      configuration:
-        bundle.sourcePath: /Workspace/${workspace.file_path}/src
+      # configuration:
+      #   bundle.sourcePath: /Workspace/${workspace.file_path}/src
