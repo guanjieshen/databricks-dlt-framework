@@ -6,7 +6,6 @@ from enum import Enum
 # Load the root path for the checkpoint and autoloader schema
 load_dotenv()
 STREAM_CHECKPOINT_ROOT_PATH = os.getenv("STREAM_CHECKPOINT_ROOT_PATH")
-AUTOLOADER_SCHEMA_ROOT_PATH = os.getenv("AUTOLOADER_SCHEMA_ROOT_PATH")
 
 # Define Valid Config Values
 class WriteMode(Enum):
