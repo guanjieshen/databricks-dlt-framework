@@ -13,7 +13,8 @@ resources:
           - guanjie.shen@databricks.com
       tags:
         envionment: ${var.env}
-        
+        deployment: dab
+
       parameters:
         - name: catalog
           default: ${var.catalog}

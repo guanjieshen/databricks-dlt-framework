@@ -12,6 +12,8 @@ resources:
             path: ../../pipelines/tpch/tpch_pipeline_ingest.ipynb
         - notebook:
             path: ../../pipelines/tpch/tpch_pipeline_transform.ipynb
+        - notebook:
+            path: ../../pipelines/tpch/tpch_pipeline_monitoring.ipynb
 
       # configuration:
       #   bundle.sourcePath: /Workspace/${workspace.file_path}/src

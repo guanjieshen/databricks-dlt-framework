@@ -1,31 +1,31 @@
-# The main job for the TPCH pipeline
-resources:
-  jobs:
-    nyc_taxi_ingestion_job:
-      name: nyc_taxi_ingestion_job
+# # The main job for the TPCH pipeline
+# resources:
+#   jobs:
+#     nyc_taxi_ingestion_job:
+#       name: nyc_taxi_ingestion_job
 
-      schedule:
-        # Run every day at 8:37 AM MST
-        quartz_cron_expression: "44 37 8 * * ?"
-        timezone_id: America/Boise
+#       schedule:
+#         # Run every day at 8:37 AM MST
+#         quartz_cron_expression: "44 37 8 * * ?"
+#         timezone_id: America/Boise
 
-      email_notifications:
-        on_failure:
-          - guanjie.shen@databricks.com
-      tags:
-        envionment: ${var.env}
+#       email_notifications:
+#         on_failure:
+#           - guanjie.shen@databricks.com
+#       tags:
+#         envionment: ${var.env}
         
-      tasks:
-        - task_key: refresh_table
-          notebook_task:
-            notebook_path: '../../pipelines/nyc_taxi/nyc_taxi_ingest.ipynb'
-          job_cluster_key: job_cluster
+#       tasks:
+#         - task_key: refresh_table
+#           notebook_task:
+#             notebook_path: '../../pipelines/nyc_taxi/nyc_taxi_ingest.ipynb'
+#           job_cluster_key: job_cluster
 
-      job_clusters:
-        - job_cluster_key: job_cluster
-          new_cluster:
-            spark_version: 13.3.x-scala2.12
-            node_type_id: Standard_D3_v2
-            autoscale:
-                min_workers: 1
-                max_workers: 4
+#       job_clusters:
+#         - job_cluster_key: job_cluster
+#           new_cluster:
+#             spark_version: 13.3.x-scala2.12
+#             node_type_id: Standard_D3_v2
+#             autoscale:
+#                 min_workers: 1
+#                 max_workers: 4
