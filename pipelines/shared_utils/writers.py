@@ -50,18 +50,6 @@ class AutoloaderWriter:
         """
         # TODO: Implement this function
 
-    def generated_autoloader_schema_path(self):
-        """
-        Generates a unique location within ADLS to store the autoloader schema path for the asset.
-        This should be deterministic based on the asset's name.
-
-        This uses the root path specific in the .env file.
-
-        Returns:
-            str: Cloud storage location for the checkpoint path.
-        """
-        # TODO: Implement this function
-
 
     def write_datalake_only(
         data_lake_location: str,

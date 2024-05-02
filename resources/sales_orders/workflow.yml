@@ -2,10 +2,11 @@
 resources:
   jobs:
     sales_orders_ingestion_job:
+    # User Input 
       name: sales_orders_ingestion_job
       schedule:
         # Run every day at 8:37 AM MST
-        quartz_cron_expression: "44 37 8 * * ?"
+        quartz_cron_expression: "44 37 11 * * ?"
         timezone_id: America/Boise
 
       email_notifications:
