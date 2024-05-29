@@ -21,16 +21,14 @@ OR REFRESH TEMPORARY STREAMING TABLE autoloader_tmp_table AS
 SELECT
   *
 FROM
-  cloud_files(
+  STREAM READ_FILES(
     'dbfs:/databricks-datasets/nyctaxi/tripdata/yellow',
-    'csv',
-    map(
-      'header', 'true',
-      'inferSchema', 'true',
-      'delimiter', ',',
-      'schemaEvolutionMode', 'addNewColumns',
-      'rescuedDataColumn', '_rescued_data'    
-       )
+    format=>'csv',
+    header=>'true',
+    inferSchema=>'true',
+    delimiter=>',',
+    schemaEvolutionMode => 'addNewColumns',
+    rescuedDataColumn => '_rescued_data'  
   );
 
 -- COMMAND ----------
