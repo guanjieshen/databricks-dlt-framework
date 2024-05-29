@@ -10,3 +10,5 @@ resources:
       libraries:
         - notebook:
             path: ../../pipelines/nyctaxi/yellow_cab_tripdata
+        - notebook:
+            path: ../../pipelines/nyctaxi/green_cab_tripdata
