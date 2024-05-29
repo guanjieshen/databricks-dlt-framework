@@ -12,7 +12,7 @@
 
 -- COMMAND ----------
 
-SET VARIABLE input_location='dbfs:/databricks-datasets/nyctaxi/tripdata/yellow';
+SET input_location='dbfs:/databricks-datasets/nyctaxi/tripdata/yellow';
 
 -- COMMAND ----------
 

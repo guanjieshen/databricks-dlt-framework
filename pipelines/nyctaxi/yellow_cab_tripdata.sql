@@ -10,9 +10,6 @@
 -- MAGIC
 -- MAGIC __Schema Evolution Modes__: https://docs.databricks.com/en/ingestion/auto-loader/schema.html#how-does-auto-loader-schema-evolution-work
 
--- COMMAND ----------
-
-SET VARIABLE input_location='dbfs:/databricks-datasets/nyctaxi/tripdata/yellow';
 
 -- COMMAND ----------
 
