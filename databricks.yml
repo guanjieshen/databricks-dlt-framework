@@ -2,7 +2,7 @@
 # See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
 # For documentation on deployment modes: https://docs.databricks.com/en/dev-tools/bundles/deployment-modes.html
 bundle:
-  name: etl_framework
+  name: dlt_etl_framework
 
 include:
   - resources/*/*.yml

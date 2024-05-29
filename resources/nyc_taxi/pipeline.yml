@@ -1,0 +1,12 @@
+# The main pipeline for the NYC Taxi pipeline
+resources:
+  pipelines:
+    nyctaxi_ingestion_pipeline:
+      name: "NYC Taxi"
+      serverless: true
+      channel: preview
+      catalog: ${var.catalog}
+      target: nyctaxi
+      libraries:
+        - notebook:
+            path: ../../pipelines/nyctaxi/yellow_cab_tripdata
