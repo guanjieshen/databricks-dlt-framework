@@ -9,7 +9,7 @@
 -- MAGIC __Common Autoloader Options__: https://docs.databricks.com/en/ingestion/auto-loader/options.html#common-auto-loader-options
 -- MAGIC
 -- MAGIC __Schema Evolution Modes__: https://docs.databricks.com/en/ingestion/auto-loader/schema.html#how-does-auto-loader-schema-evolution-work
-
+-- MAGIC
 
 -- COMMAND ----------
 
@@ -37,5 +37,9 @@ FROM
 
 CREATE OR REFRESH STREAMING TABLE bronze_nyctaxi_tripdata_yellow
 COMMENT "NYC Taxi Trip Records - Yellow Taxi Trip Records"
-AS SELECT * FROM stream(autoloader_tmp_table)
+AS SELECT * FROM stream(LIVE.autoloader_tmp_table)
+
+
+-- COMMAND ----------
+
 
