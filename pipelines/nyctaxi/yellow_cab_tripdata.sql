@@ -39,7 +39,3 @@ CREATE OR REFRESH STREAMING TABLE bronze_nyctaxi_tripdata_yellow
 COMMENT "NYC Taxi Trip Records - Yellow Taxi Trip Records"
 AS SELECT * FROM stream(LIVE.autoloader_tmp_table)
 
-
--- COMMAND ----------
-
-

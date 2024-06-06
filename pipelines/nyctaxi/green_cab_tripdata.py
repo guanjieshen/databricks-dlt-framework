@@ -24,17 +24,18 @@ schema_evolution_mode = "addNewColumns"
 rescue_data_column_name = "_rescued_data"
 
 
-@dlt.table(name=f"{output_table}_autoloader", temporary = True)
+@dlt.view(name=f"{output_table}_autoloader")
 def tmp():
   # [User Input Required] Configure Autoloader settings 
   df = (
     spark.readStream.format("cloudFiles")
     .option("cloudFiles.format", "csv")
-    .option("cloudFiles.header", "true")
-    .option("cloudFiles.inferSchema","true")
     .option("cloudFiles.schemaEvolutionMode", schema_evolution_mode)
     .option("cloudFiles.rescuedDataColumn", rescue_data_column_name)
     # Add additional autoloader settings below
+    # Add csv autoloader settings below
+    .option("header", "true")
+    .option("inferSchema","true")
     .load(input_location)
   )
   return df
@@ -46,11 +47,12 @@ def tmp():
 
 # COMMAND ----------
 
-@dlt.table(name=output_table, comment = output_table_comments)
+@dlt.table(name=output_table, comment=output_table_comments)
 def t():
-  # Read data from temporary autoloader table
-  df = spark.readStream.table(f"live.{output_table}_autoloader")
+    # Read data from temporary autoloader table
+    df = spark.readStream.table(f"live.{output_table}_autoloader")
 
-  # [User Input Required] Optional Transformations
-
-  return df
+    # [User Input Required] Optional Transformations
+    ## Rename Trip_type column to remove trailing space
+    df = df.withColumnRenamed("Trip_type ", "trip_type").drop("trip_type")
+    return df
