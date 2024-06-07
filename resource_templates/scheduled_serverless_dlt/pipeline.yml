@@ -9,6 +9,6 @@ resources:
       target: nyctaxi
       libraries:
         - notebook:
-            path: ../../pipelines/nyctaxi/green_cab_tripdata.ipynb
+            path: ../../pipelines/nyctaxi/green_cab_tripdata.py
         - notebook:
-            path: ../../pipelines/nyctaxi/yellow_cab_tripdata.ipynb
+            path: ../../pipelines/nyctaxi/yellow_cab_tripdata.sql
