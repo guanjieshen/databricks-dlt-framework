@@ -10,6 +10,9 @@ on:
   push:
     branches:
       - dev
+    paths:
+    - pipelines/**
+    - resources/**
 
 jobs:
   # Used by the "pipeline_update" job to deploy the bundle.
