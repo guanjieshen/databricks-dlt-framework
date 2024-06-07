@@ -6,7 +6,6 @@ name: "Prod deployment"
 # runs at a time.
 concurrency: 1
 
-name: Deploy To Prodcution
 on:
   release:
     types: [released]
