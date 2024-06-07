@@ -9,11 +9,10 @@ include:
 
 # Variable declarations. These variables are assigned in the dev/prod targets below.
 variables:
+  job_type:
+    description: The type of job to run.
   catalog:
     description: The catalog to deploy to.
-  warehouse_id:
-    description: The warehouse to use.
-    default: d1184b8c2a8a87eb
   env:
     description: The environment to deploy to.
     default: development
@@ -33,6 +32,7 @@ targets:
     variables:
       catalog: gshen_etl_framework_dev
       env : development
+      job_type: databricks_dlt_framework
 
   # The 'prod' target, used for production deployment.
   prod:
@@ -51,3 +51,4 @@ targets:
     variables:
       catalog: gshen_etl_framework_prod
       env : production
+      job_type: databricks_dlt_framework
