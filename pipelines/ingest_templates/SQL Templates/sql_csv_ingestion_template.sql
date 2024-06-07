@@ -9,15 +9,11 @@
 -- MAGIC __Common Autoloader Options__: https://docs.databricks.com/en/ingestion/auto-loader/options.html#common-auto-loader-options
 -- MAGIC
 -- MAGIC __Schema Evolution Modes__: https://docs.databricks.com/en/ingestion/auto-loader/schema.html#how-does-auto-loader-schema-evolution-work
+-- MAGIC
 
 -- COMMAND ----------
 
-SET input_location='dbfs:/databricks-datasets/nyctaxi/tripdata/yellow';
-
--- COMMAND ----------
-
-CREATE
-OR REFRESH TEMPORARY STREAMING TABLE autoloader_tmp_table AS
+CREATE TEMPORARY STREAMING LIVE VIEW autoloader_tmp_table AS
 SELECT
   *
 FROM
@@ -40,5 +36,5 @@ FROM
 
 CREATE OR REFRESH STREAMING TABLE bronze_nyctaxi_tripdata_yellow
 COMMENT "NYC Taxi Trip Records - Yellow Taxi Trip Records"
-AS SELECT * FROM stream(autoloader_tmp_table)
-
+AS SELECT * EXCEPT(` pickup_datetime`,` dropoff_datetime`,` passenger_count`,` trip_distance`,` pickup_longitude`,` pickup_latitude`,` rate_code`,` store_and_fwd_flag`,` dropoff_longitude`, ` dropoff_latitude`,` payment_type`,` fare_amount`,` mta_tax`,` tip_amount`,` tolls_amount`,` total_amount`, ` surcharge`) 
+FROM stream(LIVE.autoloader_tmp_table)
