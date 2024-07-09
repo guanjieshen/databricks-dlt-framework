@@ -15,7 +15,7 @@ resources:
       tags:
         envionment: ${var.env}
         job_type: ${var.job_type}
-        domain: taxis
+        domain: test_example
         
       tasks:
         - task_key: refresh_pipeline
